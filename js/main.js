@@ -1,3 +1,4 @@
+// DOM Document Object Model
 
 const view1 = document.getElementById("view1");
 
@@ -11,10 +12,82 @@ console.log(view2);
 view1.style.display = "flex";
 view2.style.display = "flex";
 
-
 const views = document.getElementsByClassName("view");
-
 console.log(views);
+
+const sameViwes = document.querySelectorAll(".view");
+console.log(sameViwes);
+
+const divs = view1.querySelectorAll("div");
+console.log(divs);
+
+const sameDivs = view1.getElementsByTagName("div");
+console.log(sameDivs);
+
+const evenDivs = view1.querySelectorAll("div:nth-of-type(2n)");
+console.log(evenDivs);
+
+for (let i = 0; i < evenDivs.length; i++) {
+  evenDivs[i].style.backgroundColor = "darkblue";
+  // evenDivs[i].style.width = "200px";
+  // evenDivs[i].style.height = "200px";
+}
+
+const navText = document.querySelector("nav h1");
+console.log(navText);
+navText.textContent = "Hello World!";
+
+const navBar = document.querySelector("nav");
+navBar.innerHTML = `<h1>Hello</h1> <p>This should be align to the right</p>`;
+console.log(navBar);
+navBar.style.justifyContent = "space-between";
+console.log(evenDivs[0]);
+console.log(evenDivs[0].parentElement);
+console.log(evenDivs[0].parentElement.children);
+console.log(evenDivs[0].parentElement.childNodes);
+console.log(evenDivs[0].parentElement.hasChildNodes());
+console.log(evenDivs[0].parentElement.lastChild);
+console.log(evenDivs[0].parentElement.firstChild);
+console.log(evenDivs[0].parentElement.lastElementChild);
+console.log(evenDivs[0].parentElement.firstElementChild);
+console.log(evenDivs[0].nextSibling);
+console.log(evenDivs[0].nextElementSibling.nextElementSibling);
+console.log(evenDivs[0].previousSibling);
+console.log(evenDivs[0].previousElementSibling);
+
+
+view1.style.display = "none";
+view2.style.display = "flex";
+view2.style.flexDirection = "row";
+view2.style.flexWrap = "wrap";
+view2.style.margin = "10px";
+
+while(view2.lastChild) {
+  view2.lastChild.remove();
+}
+
+
+const createDivs = (parent, iter) => {
+  const newDive = document.createElement("div");
+  newDive.textContent = iter;
+  newDive.style.backgroundColor = "#000";
+  newDive.style.width = "100px";
+  newDive.style.height = "100px";
+  newDive.style.margin = "10px";
+  newDive.style.display = "flex";
+  newDive.style.justifyContent = "center";
+  newDive.style.alignItems = "center";
+  parent.append(newDive);
+}
+// createDivs(view2, 10);
+for (let i = 1; i <= 12; i++) {
+  createDivs(view2, i);
+}
+
+
+
+
+
 
 // Errors
 /* "use strict";
